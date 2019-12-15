@@ -7,7 +7,7 @@ Rainbow JIRA
 
 ### Installation
 
-_TODO: Paste in link to Chrome webstore when the extension is approved_
+[Install from the Chrome Web Store](https://chrome.google.com/webstore/detail/rainbow-jira/alecogdpnecfnmfbhhfibjjmmboendhl)
 
 ### Development
 
