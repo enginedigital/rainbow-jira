@@ -7,6 +7,8 @@ Rainbow JIRA
 
 ### Installation
 
+_TODO: Paste in link to Chrome webstore when the extension is approved_
+
 ### Development
 
 1. Clone the project
