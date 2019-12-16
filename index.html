@@ -2,6 +2,10 @@
 <html>
   <head>
     <style type="text/css">
+      body {
+        padding: 1rem;
+        min-width: 100px;
+      }
       /* styles for JIRA buttons */
       button {
         visibility: visible;
@@ -10,7 +14,7 @@
         cursor: pointer;
         display: inline-block;
         font-weight: normal;
-        margin: 0;
+        margin: 1rem 0 0 0;
         padding: 4px 10px;
         text-decoration: none;
         vertical-align: baseline;
@@ -26,9 +30,15 @@
         color: white;
         background-color: #0052CC;
       }
+      button:active {
+        color: white;
+        background-color: #003f9c;
+      }
     </style>
   </head>
   <body>
+    <label for="style-2"><input type="radio" id="style-2" name="style" value="borders" checked> Borders</label><br />
+    <label for="style-1"><input type="radio" id="style-1" name="style" value="backgrounds"> Backgrounds</label>
     <button id="button">RUN!</button>
     <script src="./script.js"></script>
   </body>

@@ -4,12 +4,13 @@
  * @returns {void}
  */
 const handler = () => {
+    const style = Array.from(inputs).find(el => el.checked === true).value;
     /**
      * Function that is called when the button is hit
      *
      * @returns {void}
      */
-    const modifyDOM = () => {
+    const modifyDOM = (style) => {
         // select cards that are not subtasks
         const cards = document.querySelectorAll('.ghx-issue.ghx-type-10000');
 
@@ -17,14 +18,17 @@ const handler = () => {
             return;
         }
 
+        const opacity = style === 'backgrounds' ? 0.5 : 1;
+        const styling = style === 'backgrounds' ? 'background-color: ' : 'border: 10px solid ';
+
         const colors = [
-            'hsl(0, 0, 87%)',
-            'hsl(1, 100%, 85%)',
-            'hsl(38, 100%, 80%)',
-            'hsl(55, 100%, 80%)',
-            'hsl(141, 67%, 85%)',
-            'hsl(203, 82%, 85%)',
-            'hsl(265, 86%, 95%)',
+            `hsl(0, 0, 74%, ${opacity})`,
+            `hsl(1, 100%, 72%, ${opacity})`,
+            `hsl(38, 100%, 67%, ${opacity})`,
+            `hsl(55, 100%, 67%, ${opacity})`,
+            `hsl(141, 67%, 72%, ${opacity})`,
+            `hsl(203, 82%, 72%, ${opacity})`,
+            `hsl(265, 86%, 82%, ${opacity})`,
         ];
 
         const styleTag = document.createElement('style');
@@ -43,7 +47,7 @@ const handler = () => {
             // create a style declaration for each card
             // use the data-issue-key so the style is "sticky" to that card
             styleTag.innerHTML += `.ghx-issue.ghx-type-10000[data-issue-key="${card.dataset.issueKey}"] {
-                background-color: ${colors[index]};
+                ${styling} ${colors[index]};
             }\n`;
         });
 
@@ -53,11 +57,12 @@ const handler = () => {
 
     // We have permission to access the activeTab, so we can call chrome.tabs.executeScript:
     chrome.tabs.executeScript({
-        code: '(' + modifyDOM + ')();' //argument here is a string but function.toString() returns function's code
+        code: '(' + modifyDOM + ')( "' + style + '" );' //argument here is a string but function.toString() returns function's code
     });
 };
 
 const button = document.getElementById('button');
+const inputs = document.querySelectorAll('input');
 
 if (button) {
     button.addEventListener('click', handler);
