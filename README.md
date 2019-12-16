@@ -5,6 +5,12 @@ Rainbow JIRA
 
 ![Demo](demo.png)
 
+### Features
+
+- [x] Highlight backgrounds
+- [x] Highlight borders
+- [ ] "Colorblind" mode
+
 ### Installation
 
 [Install from the Chrome Web Store](https://chrome.google.com/webstore/detail/rainbow-jira/alecogdpnecfnmfbhhfibjjmmboendhl)
